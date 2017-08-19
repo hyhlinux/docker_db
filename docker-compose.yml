@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+
+  redis:
+    build: redis/
+    volumes:
+      - ~/docker/redis/data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - db
+
+  mongo:
+    build: mongo/
+    volumes:
+      - ~/data/mongo:/data/db 
+    ports:
+      - "27017:27017"
+    networks:
+      - db
+
+  postgre:
+    build: mongo/
+    volumes:
+      - ~/docker/posgre:/var/lib/postgresq
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "mysecretpassword"
+    networks:
+      - db
+
+networks:
+
+  db:
+    driver: bridge

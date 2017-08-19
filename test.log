@@ -1,0 +1,30 @@
+➜  docker_db git:(master) ✗ docker-compose ps
+Name   Command   State   Ports
+------------------------------
+➜  docker_db git:(master) ✗ docker-compose up
+Creating network "dockerdb_db" with driver "bridge"
+Creating dockerdb_redis_1
+Attaching to dockerdb_redis_1
+redis_1  | 1:C 19 Aug 07:12:45.128 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis_1  | 1:C 19 Aug 07:12:45.128 # Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=1, just started
+redis_1  | 1:C 19 Aug 07:12:45.128 # Configuration loaded
+redis_1  | 1:M 19 Aug 07:12:45.130 * Running mode=standalone, port=6379.
+redis_1  | 1:M 19 Aug 07:12:45.130 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
+redis_1  | 1:M 19 Aug 07:12:45.130 # Server initialized
+redis_1  | 1:M 19 Aug 07:12:45.130 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+redis_1  | 1:M 19 Aug 07:12:45.134 * DB loaded from append only file: 0.003 seconds
+redis_1  | 1:M 19 Aug 07:12:45.134 * Ready to accept connections
+^CGracefully stopping... (press Ctrl+C again to force)
+Stopping dockerdb_redis_1 ... done
+➜  docker_db git:(master) ✗ docker-compose ps
+      Name                    Command               State    Ports
+------------------------------------------------------------------
+dockerdb_redis_1   docker-entrypoint.sh /usr/ ...   Exit 0
+➜  docker_db git:(master) ✗ docker-compose rm
+Going to remove dockerdb_redis_1
+Are you sure? [yN] y
+Removing dockerdb_redis_1 ... done
+➜  docker_db git:(master) ✗ docker-compose ps
+Name   Command   State   Ports
+------------------------------
+➜  docker_db git:(master) ✗
