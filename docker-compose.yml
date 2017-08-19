@@ -21,7 +21,7 @@ services:
       - db
 
   postgre:
-    build: mongo/
+    build: postgre/
     volumes:
       - ~/docker/posgre:/var/lib/postgresq
     ports:

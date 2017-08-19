@@ -1,30 +1,83 @@
-➜  docker_db git:(master) ✗ docker-compose ps
-Name   Command   State   Ports
-------------------------------
-➜  docker_db git:(master) ✗ docker-compose up
-Creating network "dockerdb_db" with driver "bridge"
-Creating dockerdb_redis_1
-Attaching to dockerdb_redis_1
-redis_1  | 1:C 19 Aug 07:12:45.128 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
-redis_1  | 1:C 19 Aug 07:12:45.128 # Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=1, just started
-redis_1  | 1:C 19 Aug 07:12:45.128 # Configuration loaded
-redis_1  | 1:M 19 Aug 07:12:45.130 * Running mode=standalone, port=6379.
-redis_1  | 1:M 19 Aug 07:12:45.130 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
-redis_1  | 1:M 19 Aug 07:12:45.130 # Server initialized
-redis_1  | 1:M 19 Aug 07:12:45.130 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
-redis_1  | 1:M 19 Aug 07:12:45.134 * DB loaded from append only file: 0.003 seconds
-redis_1  | 1:M 19 Aug 07:12:45.134 * Ready to accept connections
-^CGracefully stopping... (press Ctrl+C again to force)
-Stopping dockerdb_redis_1 ... done
-➜  docker_db git:(master) ✗ docker-compose ps
-      Name                    Command               State    Ports
-------------------------------------------------------------------
-dockerdb_redis_1   docker-entrypoint.sh /usr/ ...   Exit 0
-➜  docker_db git:(master) ✗ docker-compose rm
-Going to remove dockerdb_redis_1
-Are you sure? [yN] y
-Removing dockerdb_redis_1 ... done
-➜  docker_db git:(master) ✗ docker-compose ps
-Name   Command   State   Ports
-------------------------------
-➜  docker_db git:(master) ✗
+Attaching to dockerdb_postgre_1, dockerdb_redis_1, dockerdb_mongo_1
+[36mpostgre_1  |[0m The files belonging to this database system will be owned by user "postgres".
+[36mpostgre_1  |[0m This user must also own the server process.
+[36mpostgre_1  |[0m 
+[33mredis_1    |[0m 1:C 19 Aug 07:32:36.488 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[36mpostgre_1  |[0m The database cluster will be initialized with locale "en_US.utf8".
+[33mredis_1    |[0m 1:C 19 Aug 07:32:36.488 # Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=1, just started
+[32mmongo_1    |[0m 2017-08-19T07:32:36.429+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=374ed94aa178
+[36mpostgre_1  |[0m The default database encoding has accordingly been set to "UTF8".
+[33mredis_1    |[0m 1:C 19 Aug 07:32:36.488 # Configuration loaded
+[32mmongo_1    |[0m 2017-08-19T07:32:36.430+0000 I CONTROL  [initandlisten] db version v3.4.7
+[36mpostgre_1  |[0m The default text search configuration will be set to "english".
+[33mredis_1    |[0m 1:M 19 Aug 07:32:36.491 * Running mode=standalone, port=6379.
+[32mmongo_1    |[0m 2017-08-19T07:32:36.430+0000 I CONTROL  [initandlisten] git version: cf38c1b8a0a8dca4a11737581beafef4fe120bcd
+[36mpostgre_1  |[0m 
+[33mredis_1    |[0m 1:M 19 Aug 07:32:36.491 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
+[32mmongo_1    |[0m 2017-08-19T07:32:36.430+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1t  3 May 2016
+[36mpostgre_1  |[0m Data page checksums are disabled.
+[33mredis_1    |[0m 1:M 19 Aug 07:32:36.491 # Server initialized
+[32mmongo_1    |[0m 2017-08-19T07:32:36.430+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+[36mpostgre_1  |[0m 
+[33mredis_1    |[0m 1:M 19 Aug 07:32:36.491 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+[32mmongo_1    |[0m 2017-08-19T07:32:36.430+0000 I CONTROL  [initandlisten] modules: none
+[36mpostgre_1  |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[32mmongo_1    |[0m 2017-08-19T07:32:36.430+0000 I CONTROL  [initandlisten] build environment:
+[36mpostgre_1  |[0m creating subdirectories ... ok
+[33mredis_1    |[0m 1:M 19 Aug 07:32:36.537 * DB loaded from append only file: 0.046 seconds
+[32mmongo_1    |[0m 2017-08-19T07:32:36.430+0000 I CONTROL  [initandlisten]     distmod: debian81
+[36mpostgre_1  |[0m selecting default max_connections ... 100
+[33mredis_1    |[0m 1:M 19 Aug 07:32:36.537 * Ready to accept connections
+[32mmongo_1    |[0m 2017-08-19T07:32:36.430+0000 I CONTROL  [initandlisten]     distarch: x86_64
+[36mpostgre_1  |[0m selecting default shared_buffers ... 128MB
+[32mmongo_1    |[0m 2017-08-19T07:32:36.430+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+[36mpostgre_1  |[0m selecting dynamic shared memory implementation ... posix
+[32mmongo_1    |[0m 2017-08-19T07:32:36.430+0000 I CONTROL  [initandlisten] options: {}
+[36mpostgre_1  |[0m creating configuration files ... ok
+[32mmongo_1    |[0m 2017-08-19T07:32:36.436+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+[36mpostgre_1  |[0m running bootstrap script ... ok
+[32mmongo_1    |[0m 2017-08-19T07:32:36.438+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=487M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+[32mmongo_1    |[0m 2017-08-19T07:32:37.026+0000 I CONTROL  [initandlisten] 
+[36mpostgre_1  |[0m performing post-bootstrap initialization ... ok
+[32mmongo_1    |[0m 2017-08-19T07:32:37.026+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+[36mpostgre_1  |[0m 
+[32mmongo_1    |[0m 2017-08-19T07:32:37.026+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+[36mpostgre_1  |[0m WARNING: enabling "trust" authentication for local connections
+[32mmongo_1    |[0m 2017-08-19T07:32:37.026+0000 I CONTROL  [initandlisten] 
+[36mpostgre_1  |[0m You can change this by editing pg_hba.conf or using the option -A, or
+[32mmongo_1    |[0m 2017-08-19T07:32:37.034+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+[36mpostgre_1  |[0m --auth-local and --auth-host, the next time you run initdb.
+[32mmongo_1    |[0m 2017-08-19T07:32:37.034+0000 I NETWORK  [thread1] waiting for connections on port 27017
+[36mpostgre_1  |[0m syncing data to disk ... ok
+[36mpostgre_1  |[0m 
+[36mpostgre_1  |[0m Success. You can now start the database server using:
+[36mpostgre_1  |[0m 
+[36mpostgre_1  |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[36mpostgre_1  |[0m 
+[36mpostgre_1  |[0m waiting for server to start....LOG:  could not bind IPv6 socket: Cannot assign requested address
+[36mpostgre_1  |[0m HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+[36mpostgre_1  |[0m LOG:  database system was shut down at 2017-08-19 07:32:37 UTC
+[36mpostgre_1  |[0m LOG:  MultiXact member wraparound protections are now enabled
+[36mpostgre_1  |[0m LOG:  database system is ready to accept connections
+[36mpostgre_1  |[0m LOG:  autovacuum launcher started
+[36mpostgre_1  |[0m  done
+[36mpostgre_1  |[0m server started
+[36mpostgre_1  |[0m ALTER ROLE
+[36mpostgre_1  |[0m 
+[36mpostgre_1  |[0m 
+[36mpostgre_1  |[0m /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+[36mpostgre_1  |[0m 
+[36mpostgre_1  |[0m LOG:  received fast shutdown request
+[36mpostgre_1  |[0m waiting for server to shut down...LOG:  aborting any active transactions
+[36mpostgre_1  |[0m LOG:  autovacuum launcher shutting down
+[36mpostgre_1  |[0m LOG:  shutting down
+[36mpostgre_1  |[0m .LOG:  database system is shut down
+[36mpostgre_1  |[0m  done
+[36mpostgre_1  |[0m server stopped
+[36mpostgre_1  |[0m 
+[36mpostgre_1  |[0m PostgreSQL init process complete; ready for start up.
+[36mpostgre_1  |[0m 
+[36mpostgre_1  |[0m LOG:  database system was shut down at 2017-08-19 07:32:38 UTC
+[36mpostgre_1  |[0m LOG:  MultiXact member wraparound protections are now enabled
+[36mpostgre_1  |[0m LOG:  database system is ready to accept connections
+[36mpostgre_1  |[0m LOG:  autovacuum launcher started
