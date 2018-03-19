@@ -20,16 +20,16 @@ services:
     networks:
       - db
 
-  postgre:
-    build: postgre/
-    volumes:
-      - ~/docker/posgre:/var/lib/postgresq
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: "mysecretpassword"
-    networks:
-      - db
+  # postgre:
+  #   build: postgre/
+  #   volumes:
+  #     - ~/docker/posgre:/var/lib/postgresq
+  #   ports:
+  #     - "5432:5432"
+  #   environment:
+  #     POSTGRES_PASSWORD: "mysecretpassword"
+  #   networks:
+  #     - db
 
 networks:
 
