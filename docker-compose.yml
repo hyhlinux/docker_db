@@ -2,35 +2,73 @@ version: '2'
 
 services:
 
-  redis:
-    build: redis/
-    volumes:
-      - ~/docker/redis/data:/data
-    ports:
-      - "6379:6379"
-    networks:
-      - db
+  # redis: 
+    # build: redis/
+    # volumes:
+    #   - ~/docker/redis/data:/data
+    # ports:
+    #   - "6379:6379"
+    # networks:
+    #   - db
 
-  mongo:
-    build: mongo/
-    volumes:
-      - ~/data/mongo:/data/db 
-    ports:
-      - "27017:27017"
-    networks:
-      - db
-
-  # postgre:
-  #   build: postgre/
+  # mongo:
+  #   build: mongo/
   #   volumes:
-  #     - ~/docker/posgre:/var/lib/postgresq
+  #     - ~/data/mongo:/data/db 
   #   ports:
-  #     - "5432:5432"
-  #   environment:
-  #     POSTGRES_PASSWORD: "mysecretpassword"
+  #     - "27017:27017"
   #   networks:
   #     - db
 
+  # mysql: 
+  #   build: mysql/
+  #   volumes:
+  #     - ~/docker/mysql/data:/var/lib/mysql
+  #   ports:
+  #     - "3306:3306"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: "mysecretpassword"
+  #   networks:
+  #     - db
+
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
+  #   networks:
+  #     - db
+  postgre:
+    build: postgre/
+    volumes:
+      - ~/docker/posgre:/var/lib/postgresq
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "mysecretpassword"
+    networks:
+      - db
+# root@5e81f84f39e6:/# export
+# declare -x GOSU_VERSION="1.10"
+# declare -x HOME="/root"
+# declare -x HOSTNAME="5e81f84f39e6"
+# declare -x LANG="en_US.utf8"
+# declare -x OLDPWD
+# declare -x PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/postgresql/10/bin"
+# declare -x PGDATA="/var/lib/postgresql/data"
+# declare -x PG_MAJOR="10"
+# declare -x PG_VERSION="10.4-2.pgdg90+1"
+# declare -x POSTGRES_PASSWORD="mysecretpassword"
+# declare -x PWD="/"
+# declare -x SHLVL="1"
+# declare -x TERM="xterm"
+# root@5e81f84f39e6:/#
+# -U 用户 -d 数据库     密码从环境变量获取
+# root@5e81f84f39e6:/# psql -U postgres -d postgres 
+# psql (10.4 (Debian 10.4-2.pgdg90+1))
+# Type "help" for help.
+
+# postgres=#
 networks:
 
   db:
