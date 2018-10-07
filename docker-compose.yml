@@ -24,6 +24,7 @@ services:
     build: mysql/
     volumes:
       - ~/docker/mysql/data:/var/lib/mysql
+      - ~/github/docker_db/mysql/conf.d:/etc/mysql/conf.d
     ports:
       - "3306:3306"
     environment:
